@@ -1,12 +1,6 @@
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    padding-top: 15%;
-    height: 100vh;
-    background: linear-gradient(135deg, #333 10%, #000 100%);
+    background: linear-gradient(135deg, #f8e5e5 10%, #fdf7f7 100%);
 }
 
 .ball-wrap {
@@ -135,18 +129,18 @@ body {
 .ball-wrap .ball-balls .ball-ani {
     align-content: center;
     justify-content: center;
-    -webkit-animation: ball-1 0.5s 0s, ball-1 0.5s 2s, ball-1 0.5s 4s, ball-1 0.5s 6s, ball-1 0.5s 8s, ball-1 0.5s 10s, ball-5 0.5s 12s, ball-6 0.5s 14s, ball-7 0.5s 16s, forwards;
-    animation: ball-1 0.5s 0s, ball-1 0.5s 2s, ball-1 0.5s 4s, ball-1 0.5s 6s, ball-1 0.5s 8s, ball-1 0.5s 10s, ball-5 0.5s 12s, ball-6 0.5s 14s, ball-7 0.5s 16s, forwards;
+    -webkit-animation: ball-1 1.5s 0s, ball-1 1.5s 2s, ball-1 1.5s 4s, ball-1 1.5s 6s, ball-1 1.5s 8s, ball-1 1.5s 10s, ball-5 1.5s 12s, ball-6 1.5s 14s, ball-7 1.5s 16s, forwards;
+    animation: ball-1 1.5s 0s, ball-1 1.5s 2s, ball-1 1.5s 4s, ball-1 1.5s 6s, ball-1 1.5s 8s, ball-1 1.5s 10s, ball-5 1.5s 12s, ball-6 1.5s 14s, ball-7 1.5s 16s, forwards;
 }
 
 .ball-balls {
-    -webkit-animation: down 1.5s 0s, down 1.5s 2s, down 1.5s 4s, down 1.5s 6s, down 1.5s 8s, down 1.5s 10s, down 1.5s 12s, down 1.5s 14s, down 0.5s 16s, forwards;
-    animation: down 1.5s 0s, down 1.5s 2s, down 1.5s 4s, down 1.5s 6s, down 1.5s 8s, down 1.5s 10s, down 1.5s 12s, down 1.5s 14s, down 0.5s 16s, forwards;
+    -webkit-animation: down 2s 0s, down 2s 2s, down 2s 4s, down 2s 6s, down 2s 8s, down 2s 10s, down 2s 12s, down 2s 14s, down 2s 16s, forwards;
+    animation: down 2s 0s, down 2s 2s, down 2s 4s, down 2s 6s, down 2s 8s, down 2s 10s, down 2s 12s, down 2s 14s, down 2s 16s, forwards;
 }
 
 .ball-wrap .ball-balls .ball-ani li {
-    -webkit-animation: shift 1.5s 0s, shift 1.5s 2s, shift 1.5s 4s, shift 1.5s 6s, shift 1.5s 8s, shift 1.5s 10s, shift 1.5s 12s, shift 1.5s 14s, shift 0.5s 16s, forwards;
-    animation: shift 1.5s 0s, shift 1.5s 2s, shift 1.5s 4s, shift 1.5s 6s, shift 1.5s 8s, shift 1.5s 10s, shift 1.5s 12s, shift 1.5s 14s, shift 0.5s 16s, forwards;
+    -webkit-animation: shift 2s 0s, shift 2s 2s, shift 2s 4s, shift 2s 6s, shift 2s 8s, shift 2s 10s, shift 2s 12s, shift 2s 14s, shift 2s 16s, forwards;
+    animation: shift 2s 0s, shift 2s 2s, shift 2s 4s, shift 2s 6s, shift 2s 8s, shift 2s 10s, shift 2s 12s, shift 2s 14s, shift 2s 16s, forwards;
 }
 
 @-webkit-keyframes ball-1 {
