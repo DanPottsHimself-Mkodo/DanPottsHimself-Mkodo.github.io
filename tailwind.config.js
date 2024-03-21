@@ -13,7 +13,7 @@ module.exports = {
         black: "#242426",
       },
       boxShadow: {
-        scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.3);"
+        scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.5);"
       },
       keyframes: {
         scanner: {

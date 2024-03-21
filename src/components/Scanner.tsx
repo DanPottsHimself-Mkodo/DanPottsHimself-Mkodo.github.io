@@ -24,6 +24,13 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
     const [isPermissionsPopupVisible, setIsPermissionsPopupVisible] = useState(permissions === Permission.DENIED);
     const reader = new BrowserMultiFormatReader();
 
+    function onPermissionChange(newPermission: PermissionStatus) {
+        reader.reset();
+        if (newPermission.state) {
+            setPermissions(newPermission.state.toUpperCase() as Permission);
+        }
+    }
+
     useEffect(() => {
         window.navigator.mediaDevices.getUserMedia({
             video: {
@@ -40,10 +47,17 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
             setPermissions(Permission.DENIED);
             setStream(null);
         })
+
+        window.navigator.permissions.query({name: "camera" as PermissionName}).then((res) => {
+            // @ts-ignore
+            res.onchange = () => {
+                onPermissionChange(res);
+            }
+        })
     }, []);
 
     useEffect(() => {
-        if (stream) {
+        if (stream && permissions === Permission.GRANTED) {
             decode().then();
         }
 
@@ -52,7 +66,7 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
                 stopVideoTracks(stream);
             }
         }
-    }, [stream]);
+    }, [stream, permissions]);
 
     async function decode() {
         const element = document.getElementsByTagName("video")[0];
