@@ -1,0 +1,26 @@
+[
+  {
+    "drawID": "21237",
+    "drawTime": "2024-03-21T18:33:43.511Z",
+    "gameName": "LiveLoveLotto",
+    "winningNumbers": [1, 2, 3, 4, 5, 6],
+    "winAmounts": [6000000],
+    "jackpotAmount": 12000000
+  },
+  {
+    "drawID": "21323",
+    "drawTime": "2012-03-17T18:25:43.511Z",
+    "gameName": "LiveLoveLotto",
+    "winningNumbers": [1, 2, 3, 4, 5, 6],
+    "winAmounts": [4000000],
+    "jackpotAmount": 12000000
+  },
+  {
+    "drawID": "1212",
+    "drawTime": "2012-02-11T18:25:43.511Z",
+    "gameName": "LiveLoveLotto",
+    "winningNumbers": [1, 2, 3, 4, 5, 6],
+    "winAmounts": [13000000],
+    "jackpotAmount": 12000000
+  }
+]

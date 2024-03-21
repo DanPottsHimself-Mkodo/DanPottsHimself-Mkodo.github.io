@@ -1,0 +1,11 @@
+@keyframes shiny {
+    from {
+      transform: scale(1);
+      text-shadow: none;
+    }
+    
+    to {
+      transform: scale(1.2);
+      text-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0, 0 0 50px #ff0, 0 0 60px #ff0;
+    }
+}
