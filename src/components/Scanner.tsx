@@ -11,6 +11,12 @@ export enum Permission {
     DENIED = "DENIED"
 }
 
+export function stopVideoTracks(stream: MediaStream) {
+    stream.getVideoTracks().forEach((track) => {
+        track.stop();
+    })
+}
+
 const TicketScanner: React.FC<Props> = ({onScan}) => {
     const [permissions, setPermissions] = useState<Permission>(Permission.DENIED);
     const [stream, setStream] = useState<MediaStream | null>(null);
@@ -27,18 +33,22 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
             }
         }).then((mediaStream) => {
             setStream(mediaStream);
-            setPermissions(Permission.GRANTED);
         }).catch(() => {
             setStream(null);
-            setPermissions(Permission.DENIED);
         })
     }, []);
 
     useEffect(() => {
-        if (permissions === Permission.GRANTED && stream) {
+        if (stream) {
             decode().then();
         }
-    }, [permissions, stream]);
+
+        return () => {
+            if (stream) {
+                stopVideoTracks(stream);
+            }
+        }
+    }, [stream]);
 
     async function decode() {
         const element = document.getElementsByTagName("video")[0];
@@ -49,7 +59,7 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
                         ideal: "environment"
                     } : {
                         exact: "environment"
-                    }
+                    },
                 }
             }, element);
 
