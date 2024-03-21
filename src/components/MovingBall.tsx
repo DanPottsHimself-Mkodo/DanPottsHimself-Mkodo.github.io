@@ -1,8 +1,8 @@
-import "./MovingBall.css";
+import styles from "./MovingBall.module.css";
 
 function MovingBall({ leftPosition, number }: { leftPosition: number, number: number }) {
     return (
-        <div className="ball bg-red" style={{ left: `${leftPosition}px` }}>{number}</div>
+        <div className={styles["ball"]} style={{ left: `${leftPosition}px` }}>{number}</div>
     );
 }
 
