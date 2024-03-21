@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import React, { useRef, useEffect } from 'react';
 import paper, { Point, Raster} from 'paper';
 
@@ -8,6 +9,9 @@ function Results() {
         <p>
          <BouncingBalls />
         </p>
+          <Link to="/live-draw">
+              <button className={"text-black hover:text-imperial"}>Live Draw</button>
+          </Link>
       </header>
     </div>
   );

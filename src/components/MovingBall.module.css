@@ -1,0 +1,120 @@
+
+.ball {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+    font-size: 70%;
+    font-weight: bold;
+	color: #F0F0F2;
+  background-color: #F2293A;
+	border-radius: 50px;
+	text-align: center;
+	display: flex;
+	align-self: center;
+	align-items: center;
+justify-content: center;
+background: -webkit-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%); 
+background: -moz-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%); 
+background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%);
+ background: radial-gradient(circle at 65% 15%, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%);       
+ -webkit-animation: up 2s infinite ease-in-out;
+ -moz-animation: up 2s infinite ease-in-out;
+ animation: up 2s infinite ease-in-out;
+}
+
+
+@-webkit-keyframes up {
+	0% {
+		-webkit-transform: translate(-80px);
+		width: 30px;
+		height: 30px;
+	}
+	50% {
+		-webkit-transform: translate(80px);
+		width: 60px;
+		height: 60px;
+	}
+	100% {
+		-webkit-transform: translate(-80px);
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@-webkit-keyframes down {
+	0% {
+		-webkit-transform: translate(80px);
+	}
+	50% {
+		-webkit-transform: translate(-80px);
+	}
+	100% {
+		-webkit-transform: translate(80px);
+	}
+}
+
+@-moz-keyframes up {
+	0% {
+		-moz-transform: translate(-80px);
+	}
+	50% {
+		-moz-transform: translate(80px);
+	}
+	100% {
+		-moz-transform: translate(-80px);
+	}
+}
+
+@-moz-keyframes down {
+	0% {
+		-moz-transform: translateY(80px);
+	}
+	50% {
+		-moz-transform: translateY(-80px);
+	}
+	100% {
+		-moz-transform: translateY(80px);
+	}
+}
+
+@keyframes up {
+	0% {
+		transform: translateY(-100px);
+		width: 30px;
+		height: 30px;
+		font-size: 30%;
+	}
+	50% {
+		transform: translateY(100px);
+		width: 60px;
+		height: 60px;
+		font-size: 80%;
+	}
+	100% {
+		transform: translateY(-100px);
+		width: 30px;
+		height: 30px;
+		font-size: 30%;
+	}
+}
+
+@keyframes down {
+	0% {
+		transform: translateY(100px);
+		width: 30px;
+		height: 30px;
+		font-size: 30%;
+	}
+	50% {
+		transform: translateY(-100px);
+		width: 60px;
+		height: 60px;
+		font-size: 80%;
+	}
+	100% {
+		transform: translateY(100px);
+		width: 30px;
+		height: 30px;
+		font-size: 30%;
+	}
+}

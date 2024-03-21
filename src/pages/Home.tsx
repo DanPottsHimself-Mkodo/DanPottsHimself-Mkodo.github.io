@@ -1,26 +1,21 @@
-import "./App.css";
-import { Link } from "react-router-dom";
-import {Modal} from "../components/modal/Modal";
-import React, {useState} from "react";
+import { useState } from "react";
+import styles from "./Home.module.css";
 
 function App() {
-
-  const [shouldShowModal, setShouldShowModal] = useState(false)
-
+  const [checked, setChecked] = useState(false);
+  
   return (
-    <div className="App">
-      <header className="bg-white flex flex-col h-screen justify-center text-lg">
-        <Link to="/results">
-          <button className={"text-black hover:text-imperial"}>Results</button>
-        </Link>
-        <Link to="/scan">
-          <button className={"color-black hover:text-imperial"}>Scan</button>
-        </Link>
-      </header>
-      <button onClick={() => setShouldShowModal(!shouldShowModal)}>Show Modal</button>
-        <Modal isOpen={shouldShowModal} closeModal={() => setShouldShowModal(!shouldShowModal)}>
-            <p>Children text</p>
-        </Modal>
+    <div className={styles["App"]}>
+        <div className={styles["container"]}>
+          <div className={styles["tv"]}>
+            <input type="checkbox" className={styles["switchinput"]} onChange={() => setChecked(!checked)}/>
+            <div className={styles["switch"]}></div>
+            <div className={styles["video"]}>
+              
+            </div>
+            <div className={styles["cover"]}></div>
+          </div>
+      </div>
     </div>
   );
 }
