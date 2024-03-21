@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { BrowserMultiFormatReader } from "@zxing/library";
+import {BrowserMultiFormatReader} from "@zxing/library";
 import {isDev} from "../util/env";
 
 interface Props {
@@ -11,7 +11,7 @@ export enum Permission {
     DENIED = "DENIED"
 }
 
-const TicketScanner: React.FC<Props> = ({ onScan }) => {
+const TicketScanner: React.FC<Props> = ({onScan}) => {
     const [permissions, setPermissions] = useState<Permission>(Permission.DENIED);
     const [stream, setStream] = useState<MediaStream | null>(null);
     const reader = new BrowserMultiFormatReader();
@@ -59,7 +59,9 @@ const TicketScanner: React.FC<Props> = ({ onScan }) => {
     }
 
     return (
-        <video className={"w-full h-full"} />
+        <div className={"flex-grow px-4 pb-4 w-full h-full"}>
+            <video className={"w-full h-full object-cover rounded-2xl"}/>
+        </div>
     )
 }
 
