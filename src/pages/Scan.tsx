@@ -1,11 +1,10 @@
+import TicketScanner from "../components/Scanner";
+
 function Scan() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-         Scan
-        </p>
-      </header>
+    <div>
+      <header>Ticket Scanner</header>
+        <TicketScanner onScan={(ticketId) => alert(ticketId)} />
     </div>
   );
 }
