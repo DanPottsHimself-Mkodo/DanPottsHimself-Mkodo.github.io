@@ -24,15 +24,17 @@ export const DrawCountdown: React.FC<Props> = ({ draw }) => {
   
     return (
       <div className="flex flex-col gap-4 p-4 items-center bg-slate-100 w-1/2 justify-center border-4 border-black text-black">
-        {timeLeft > 0 && (
-          <p className="text-black">
-            Time left until {draw.gameName} draw: {Math.floor(timeLeft / 1000)}{" "}
-            seconds
-          </p>
-        )}
          <div className="text-2xl font-bold self-start">
                 {new Date(draw.drawTime).toDateString()}
               </div>
+              {timeLeft > 0 && (
+          <div className="text-black flex w-full items-center justify-center">
+            <p className="text-black">
+            Time left until {draw.gameName} draw: {Math.floor(timeLeft / 1000)}{" "}
+            seconds
+            </p>
+          </div>
+        )}
         <p className="w-full text-black text-md flex items-center justify-center">This draw is for a jackpot amount of</p>
         <h4 className="text-4xl font-bold">
                 {new Intl.NumberFormat("en", {
