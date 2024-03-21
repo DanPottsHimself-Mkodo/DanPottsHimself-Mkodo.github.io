@@ -26,19 +26,19 @@ function App() {
               </p>
 <br/>
               <p>
-                <span className="cyan">27th May 198838 30 3 1 89 22 97</span>
+                <span className="cyan">27th May 1988 2 11 20 22 27 33</span>
               </p>
               <p>
-                <span className="white">21st May 198838 21 0 8 63 39 96</span>
+                <span className="white">21st May 1988 1 8 12 17 21 36</span>
               </p>
               <p>
-                <span className="cyan">16th May 198838 22 3 9 39 42 94</span>
+                <span className="cyan">16th May 1988 3 9 22 32 39 40</span>
               </p>
               <p>
-                <span className="white">14th May 198838 28 1 8 53 47 90</span>
+                <span className="white">14th May 1988 4 12 13 18 25 37</span>
               </p>
               <p>
-                <span className="white">9th May 198838 28 4 4 53 47 86</span>
+                <span className="white">9th May 1988 1 13 15 27 31 34</span>
               </p>
               <p></p>
               <p className="green flex justify-center">BUY YOUR TICKET NOW</p>
