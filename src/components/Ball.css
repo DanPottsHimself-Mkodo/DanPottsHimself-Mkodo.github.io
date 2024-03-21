@@ -15,5 +15,24 @@ justify-content: center;
 background: -webkit-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%); 
 background: -moz-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%); 
 background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%);
- background: radial-gradient(circle at 65% 15%, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%);       
+ background: radial-gradient(circle at 65% 15%, #F0F0F2 1px, #F2293A 3%, #73272d 60%, #F2293A 100%);
+}
+
+.matched {
+	width: 50px;
+	height: 50px;
+	font-size: 130%;
+	font-weight: bold;
+	color: #F0F0F2;
+	background-color: #4C9A2A;
+	border-radius: 50px;
+	text-align: center;
+	display: flex;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	background: -webkit-radial-gradient(65% 15%, circle, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
+	background: -moz-radial-gradient(65% 15%, circle, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
+	background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
+	background: radial-gradient(circle at 65% 15%, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
 }

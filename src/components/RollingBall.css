@@ -1,6 +1,6 @@
 
 body {
-    background: linear-gradient(135deg, #f8e5e5 10%, #fdf7f7 100%);
+    background: linear-gradient(135deg, #757575 10%, #5d5d5d 100%);
 }
 
 .ball-wrap {
@@ -129,18 +129,18 @@ body {
 .ball-wrap .ball-balls .ball-ani {
     align-content: center;
     justify-content: center;
-    -webkit-animation: ball-1 1.5s 0s, ball-1 1.5s 2s, ball-1 1.5s 4s, ball-1 1.5s 6s, ball-1 1.5s 8s, ball-1 1.5s 10s, ball-5 1.5s 12s, ball-6 1.5s 14s, ball-7 1.5s 16s, forwards;
-    animation: ball-1 1.5s 0s, ball-1 1.5s 2s, ball-1 1.5s 4s, ball-1 1.5s 6s, ball-1 1.5s 8s, ball-1 1.5s 10s, ball-5 1.5s 12s, ball-6 1.5s 14s, ball-7 1.5s 16s, forwards;
+    -webkit-animation: ball-1 2.5s 0s, ball-1 2.5s 5s, ball-1 2.5s 10s, ball-1 2.5s 15s, ball-1 1.5s 20s, ball-1 1.5s 25s, ball-5 1.5s 30s, ball-6 1.5s 35s, ball-7 1.5s 40s, forwards;
+    animation: ball-1 2.5s 0s, ball-1 2.5s 5s, ball-1 2.5s 10s, ball-1 2.5s 15s, ball-1 1.5s 20s, ball-1 1.5s 25s, ball-5 1.5s 30s, ball-6 1.5s 35s, ball-7 1.5s 40s, forwards;
 }
 
 .ball-balls {
-    -webkit-animation: down 2s 0s, down 2s 2s, down 2s 4s, down 2s 6s, down 2s 8s, down 2s 10s, down 2s 12s, down 2s 14s, down 2s 16s, forwards;
-    animation: down 2s 0s, down 2s 2s, down 2s 4s, down 2s 6s, down 2s 8s, down 2s 10s, down 2s 12s, down 2s 14s, down 2s 16s, forwards;
+    -webkit-animation: down 5s 0s, down 5s 5s, down 5s 10s, down 5s 15s, down 5s 20s, down 5s 25s, down 5s 30s, down 5s 35s, down 5s 40s, forwards;
+    animation: down 5s 0s, down 5s 5s, down 5s 10s, down 5s 15s, down 5s 20s, down 5s 25s, down 5s 30s, down 5s 35s, down 5s 40s, forwards;
 }
 
 .ball-wrap .ball-balls .ball-ani li {
-    -webkit-animation: shift 2s 0s, shift 2s 2s, shift 2s 4s, shift 2s 6s, shift 2s 8s, shift 2s 10s, shift 2s 12s, shift 2s 14s, shift 2s 16s, forwards;
-    animation: shift 2s 0s, shift 2s 2s, shift 2s 4s, shift 2s 6s, shift 2s 8s, shift 2s 10s, shift 2s 12s, shift 2s 14s, shift 2s 16s, forwards;
+    -webkit-animation: shift 5s 0s, shift 5s 5s, shift 5s 10s, shift 5s 15s, shift 5s 20s, shift 5s 25s, shift 5s 30s, shift 5s 35s, shift 5s 40s, forwards;
+    animation: shift 5s 0s, shift 5s 5s, shift 5s 10s, shift 5s 15s, shift 5s 20s, shift 5s 25s, shift 5s 30s, shift 5s 35s, shift 5s 40s, forwards;
 }
 
 @-webkit-keyframes ball-1 {
@@ -220,35 +220,35 @@ body {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-.lottery-list .lottery-ani li:nth-child(0) {
+.lottery-list .lottery-ani li:nth-child(1) {
     -webkit-animation-delay: 0s;
     animation-delay: 0s;
 }
-.lottery-list .lottery-ani li:nth-child(1) {
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
-}
 .lottery-list .lottery-ani li:nth-child(2) {
-    -webkit-animation-delay: 4s;
-    animation-delay: 4s;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
 }
 .lottery-list .lottery-ani li:nth-child(3) {
-    -webkit-animation-delay: 6s;
-    animation-delay: 6s;
-}
-.lottery-list .lottery-ani li:nth-child(4) {
-    -webkit-animation-delay: 8s;
-    animation-delay: 8s;
-}
-.lottery-list .lottery-ani li:nth-child(5) {
     -webkit-animation-delay: 10s;
     animation-delay: 10s;
 }
+.lottery-list .lottery-ani li:nth-child(4) {
+    -webkit-animation-delay: 15s;
+    animation-delay: 15s;
+}
+.lottery-list .lottery-ani li:nth-child(5) {
+    -webkit-animation-delay: 20s;
+    animation-delay: 20s;
+}
 .lottery-list .lottery-ani li:nth-child(6) {
-    -webkit-animation-delay: 12s;
-    animation-delay: 12s;
+    -webkit-animation-delay: 25s;
+    animation-delay: 25s;
 }
 .lottery-list .lottery-ani li:nth-child(7) {
-    -webkit-animation-delay: 14s;
-    animation-delay: 14s;
+    -webkit-animation-delay: 30s;
+    animation-delay: 30s;
+}
+.lottery-list .lottery-ani li:nth-child(8) {
+    -webkit-animation-delay: 35s;
+    animation-delay: 35s;
 }
