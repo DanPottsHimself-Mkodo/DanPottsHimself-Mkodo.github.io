@@ -1,4 +1,5 @@
 import React from "react";
+import CrossIcon from "../../icons/CrossIcon";
 
 interface ModalProps {
     isOpen: boolean
@@ -17,7 +18,7 @@ export const Modal: React.FC<ModalProps> = ({isOpen, closeModal, children}) => {
                         className="bg-slate-300 rounded-full w-8 p-1 hover:text-imperial ease-in-out duration-100"
                         onClick={() => closeModal()}
                     >
-                        <div> &#x2715;</div>
+                        <div><CrossIcon /></div>
                     </button>
                 </div>
                 <div className={"text-left"}>
