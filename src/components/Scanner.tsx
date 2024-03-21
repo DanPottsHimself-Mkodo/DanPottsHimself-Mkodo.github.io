@@ -60,9 +60,11 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
 
     return (
         <div className={"relative flex-grow px-4 pb-4 w-full h-full items-center justify-center"}>
-            <video className={"w-full h-full object-cover rounded-2xl"}/>
-            <div className={"absolute flex z-20 w-full h-full left-0 top-0 bg-transparent justify-center items-center"}>
-                <div className={"corners-border w-3/4 h-32"} />
+            <video className={"w-full h-full object-cover rounded-2xl"} />
+            <div className={"absolute flex z-20 w-[calc(100%-32px)] mx-4 h-[calc(100%-16px)] left-0 top-0 bg-transparent justify-center items-center overflow-clip rounded-2xl"}>
+                <div className={"corners-border w-3/4 h-32 shadow-scannerOverlay"}>
+                    <div className={"bg-imperial h-2 w-full"} />
+                </div>
             </div>
         </div>
     )

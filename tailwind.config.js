@@ -11,6 +11,9 @@ module.exports = {
         "wine": "#73272D",
         white: "#F0F0F2",
         black: "#242426",
+      },
+      boxShadow: {
+        scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.3);"
       }
     },
   },
