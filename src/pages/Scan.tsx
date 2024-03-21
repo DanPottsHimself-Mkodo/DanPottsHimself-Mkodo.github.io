@@ -1,5 +1,7 @@
 import TicketScanner, {stopVideoTracks} from "../components/Scanner";
 import CrossIcon from "../icons/CrossIcon";
+import {isMobile} from "../util/isMobile";
+import {UseMobile} from "./scanning/use-mobile";
 
 function Scan() {
     function onCloseClick() {
@@ -19,7 +21,11 @@ function Scan() {
                     <CrossIcon/>
                 </button>
             </header>
-            <TicketScanner onScan={(ticketId) => alert(ticketId)}/>
+            {isMobile() ? (
+                <TicketScanner onScan={(ticketId) => alert(ticketId)}/>
+            ) : (
+                <UseMobile/>
+            )}
         </div>
     );
 }

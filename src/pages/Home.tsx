@@ -16,9 +16,6 @@ function App() {
         <Link to="/scan">
           <button className={"color-black hover:text-imperial"}>Scan</button>
         </Link>
-        <Link to="/scanning/use-mobile">
-          <button className={"color-black hover:text-imperial"}>Use Mobile Screen</button>
-        </Link>
       </header>
       <button onClick={() => setShouldShowModal(!shouldShowModal)}>Show Modal</button>
         <Modal isOpen={shouldShowModal} closeModal={() => setShouldShowModal(!shouldShowModal)}>
