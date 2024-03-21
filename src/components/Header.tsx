@@ -5,7 +5,7 @@ export const Header = () => {
     
     return (
        <div className="flex flex-row gap-8 bg-slate-600 text-white items-center justify-center py-2">
-        <Link to="/home">
+        <Link to="/">
           <button className={`text-white hover:text-imperial visited:text-white ${location.pathname.includes("home") ? "text-slate-400" : "" }`}>Home</button>
         </Link>
          <Link to="/results">
