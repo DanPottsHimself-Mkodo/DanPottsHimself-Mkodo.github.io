@@ -14,6 +14,18 @@ module.exports = {
       },
       boxShadow: {
         scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.3);"
+      },
+      keyframes: {
+        scanner: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(128px)" }
+        }
+      },
+      animation: {
+        scanner: "scanner 2s ease-in-out infinite"
+      },
+      width: {
+        "9/10": "90%"
       }
     },
   },
