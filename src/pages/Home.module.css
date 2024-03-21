@@ -55,8 +55,8 @@ body {
 
 .video {
 	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
+	height: 100%;
+    width:100%;
 	overflow: hidden;
 }
 
@@ -151,7 +151,7 @@ input:checked + .switch:after {
 	border: 19.65vw solid #0a0a0a;
 	border-left-width: 35.1vw;
 	border-right-width: 35.1vw;
-	animation: turn-off 0.35s ease 0s 1, turned-off 1s ease 0.15s infinite,
+	animation: turn-off 0.75s ease 0s 1, turned-off 1s ease 0.15s infinite,
 		white-dot 0.35s ease 0.15s 1;
 }
 
