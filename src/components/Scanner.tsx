@@ -59,7 +59,7 @@ const TicketScanner: React.FC<Props> = ({ onScan }) => {
     }
 
     return (
-        <video className={"w-full h-full"} id={"scanner"} />
+        <video className={"w-full h-full"} />
     )
 }
 
