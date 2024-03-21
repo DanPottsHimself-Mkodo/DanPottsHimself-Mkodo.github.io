@@ -1,13 +1,8 @@
-import React from 'react';
 import "./MovingBall.css";
 
-function MovingBall({ leftPosition }: { leftPosition: number }) {
-    const randomIntFromInterval = (min: number, max: number) => {
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-
+function MovingBall({ leftPosition, number }: { leftPosition: number, number: number }) {
     return (
-        <div className="ball bg-red" style={{ left: `${leftPosition}px` }}>{randomIntFromInterval(1, 40)}</div>
+        <div className="ball bg-red" style={{ left: `${leftPosition}px` }}>{number}</div>
     );
 }
 
