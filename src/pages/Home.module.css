@@ -111,7 +111,7 @@ input:checked + .switch {
 	border: 0.25vmax solid #4e4e4e;
 	border-top-color: transparent;
 	border-radius: 100%;
-	left: 0.5vmax;
+	left: 0.75vmax;
 }
 
 input:checked + .switch:before {
