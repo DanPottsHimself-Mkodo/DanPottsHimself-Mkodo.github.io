@@ -10,3 +10,11 @@ export interface Draw {
     winningNumbers: number[]
     winAmounts: number[]
 }
+
+export interface DrawData {
+    drawID: string
+    drawTime: string
+    gameName: string
+    winningNumbers: number[]
+    winAmounts: number[]
+}
