@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
       <Header/>
-          <Main />
+        <Main />
       </BrowserRouter>
   </React.StrictMode>
 );

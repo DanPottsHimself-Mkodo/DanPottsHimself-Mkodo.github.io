@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 function Results() {
   return (
     <div className="App">
-      <header className="bg-white flex flex-col h-screen justify-center text-lg">
+      <header className="flex flex-col h-screen justify-center text-lg">
         <p className={"text-6xl font-bold text-black"}>
          Results
         </p>
