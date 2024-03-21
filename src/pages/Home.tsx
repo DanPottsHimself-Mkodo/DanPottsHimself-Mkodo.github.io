@@ -1,7 +1,11 @@
-import LoadingSpinner from "../components/LoadingSpinner";
 import { Link } from "react-router-dom";
+import {Modal} from "../components/modal/Modal";
+import React, {useState} from "react";
 
 function App() {
+
+  const [shouldShowModal, setShouldShowModal] = useState(false)
+
   return (
     <div className="App">
       <header className="bg-white flex flex-col h-screen justify-center text-lg">
@@ -12,6 +16,10 @@ function App() {
           <button className={"color-black hover:text-imperial"}>Scan</button>
         </Link>
       </header>
+      <button onClick={() => setShouldShowModal(!shouldShowModal)}>Show Modal</button>
+        <Modal isOpen={shouldShowModal} closeModal={() => setShouldShowModal(!shouldShowModal)}>
+            <p>Children text</p>
+        </Modal>
     </div>
   );
 }

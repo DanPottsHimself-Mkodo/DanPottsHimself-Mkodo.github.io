@@ -22,3 +22,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.corners-border {
+  border-image-source: url('/public/borderImage.svg');
+  border-image-slice: 51%;
+  border-image-width: 2.5em;
+}

@@ -8,7 +8,7 @@ import LiveDraw from './pages/LiveDraw';
 const Main = () => {
   return (
     <Routes>
-      <Route path='/home' element={<Home/>}></Route>
+      <Route path='/' element={<Home/>}></Route>
       <Route path='/results' element={<Results/>}></Route>
       <Route path='/scan' element={<Scan/>}></Route>
       <Route path='/live-draw' element={<LiveDraw/>}></Route>
