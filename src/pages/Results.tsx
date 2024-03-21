@@ -47,6 +47,7 @@ const BouncingBalls: React.FC = () => {
         const onFrame = (event: paper.Event) => {
             // Update position for each ball
             balls.forEach(ball => {
+                ball.velocity.x *= 0.99;
                 ball.path.position = ball.path.position.add(ball.velocity);
 
                 // Bounce off walls
