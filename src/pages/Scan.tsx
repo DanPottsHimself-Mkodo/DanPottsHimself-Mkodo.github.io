@@ -13,12 +13,13 @@ function Scan() {
     }
 
     return (
-        <div className={"flex flex-col bg-white h-screen"}>
+        <div className={"flex flex-col bg-trueBlack h-screen"}>
             <header className={"flex w-full h-16 items-center text-center px-4"}>
                 <div className={"w-8"}/>
-                <h1 className={"font-black text-2xl w-full text-black flex-grow"}>Ticket Scanner</h1>
+                <h1 className={"font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"}>Ticket Scanner</h1>
                 <button className={"flex justify-center items-center w-8 h-8"} onClick={onCloseClick}>
-                    <CrossIcon/>
+                    {/*<CrossIcon/>*/}
+                    <img src={"/assets/ceefax_cross.png"} alt={"Close ticket scanner"} width={32} />
                 </button>
             </header>
             {isMobile() ? (

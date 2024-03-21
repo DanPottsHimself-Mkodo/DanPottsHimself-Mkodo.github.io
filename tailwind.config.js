@@ -9,8 +9,9 @@ module.exports = {
         "imperial": "#F2293A",
         "cornell": "#A61717",
         "wine": "#73272D",
-        white: "#F0F0F2",
-        black: "#242426",
+        "trueBlack": "#000000",
+        "ceefaxBlue": "#0000FF",
+        "ceefaxYellow": "#FFFF00"
       },
       boxShadow: {
         scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.5);"
@@ -26,6 +27,9 @@ module.exports = {
       },
       width: {
         "9/10": "90%"
+      },
+      fontFamily: {
+        "ceefax": "modesevenregular"
       }
     },
   },

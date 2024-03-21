@@ -18,6 +18,7 @@ function App() {
           <div className={styles["switch"]}></div>
           <div className={styles["video"]}>
             <div className="mycontainer flex flex-col justify-center text-center">
+                <img className={"px-8 mb-8"} src={"/assets/lottovision_ceefax.png"} width={"100%"} alt={"Lotto Vision Logo"} />
               <p>
                 LottoVision 1 324 Thu 23 Jul 1988<div id="clock"></div>
               </p>
