@@ -4,7 +4,7 @@ export const Header = () => {
   const location = useLocation();
 
   return location.pathname !== "/" ? (
-    <div className="flex flex-row gap-8 text-white items-center justify-center py-2 bg-trueBlack border-b-4 border-gray-800">
+    <div className="flex flex-row gap-4 md:gap-8 text-white items-center justify-center py-2 px-2 bg-trueBlack border-b-4 border-gray-800">
       <Link to="/">
         <button
           className={`font-black text-base md:text-2xl w-full flex-grow font-ceefax ${

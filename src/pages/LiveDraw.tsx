@@ -100,7 +100,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
         }
       >
         {loading ? (
-          <div className="w-1/2">
+          <div className="w-1/2 px-4">
             <LoadingSpinner />
           </div>
         ) : null}
