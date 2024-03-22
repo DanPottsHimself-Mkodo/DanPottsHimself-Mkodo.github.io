@@ -9,6 +9,10 @@ function Results() {
   const draws: Draw[] = resultInfo;
   return (
     <div className="App">
+      <header className={"flex w-full h-16 items-center text-center px-4 bg-trueBlack"}>
+        <div className={"w-8"}/>
+        <h1 className={"font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"}>Results</h1>
+      </header>
       <div className="flex flex-col justify-start items-center h-screen space-between pt-6 gap-12">
         {draws.map((draw, index) => {
           if(new Date(draw.drawTime).setHours(0,0,0,0) === new Date().setHours(0,0,0,0)) return ( <DrawCountdown draw={draw} key={index} />)

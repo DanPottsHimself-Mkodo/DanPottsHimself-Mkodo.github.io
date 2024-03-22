@@ -54,8 +54,11 @@ function LiveDraw() {
 
     return (
         <div className="App">
+            <header className={"flex w-full h-16 items-center text-center px-4 bg-trueBlack"}>
+                <div className={"w-8"}/>
+                <h1 className={"font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"}>Live Draw</h1>
+            </header>
             <div className="flex flex-col justify-start items-center h-screen space-between pt-6">
-                <h1 className="text-lg">Live Draw</h1>
                 {loading ? (
                     <div className="w-1/2">
                         <LoadingSpinner />
