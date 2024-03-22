@@ -68,7 +68,7 @@ export const BouncingBalls: React.FC = () => {
         <div className={"flex flex-col justify-center items-center"}>
             <canvas width={isMobile() ? 200 : 350} height={isMobile() ? 200 : 350}
                     className={"z-50 bg-white rounded-full border-4 border-slate-300"} ref={canvasRef}/>
-            <img className={"absolute scale-110 "} src={"/assets/image-removebg-preview.png"}/>
+            <img className={"absolute scale-70 md:scale-110 "} src={"/assets/image-removebg-preview.png"}/>
         </div>
     )
 };

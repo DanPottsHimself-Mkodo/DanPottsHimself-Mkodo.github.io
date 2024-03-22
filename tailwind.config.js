@@ -32,6 +32,9 @@ module.exports = {
       },
       fontFamily: {
         "ceefax": "modesevenregular"
+      },
+      scale: {
+        "70": "70%"
       }
     },
   },
