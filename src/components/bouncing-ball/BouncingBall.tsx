@@ -24,7 +24,7 @@ export const BouncingBalls: React.FC = () => {
 
             })
 
-            raster.scale(isMobile() ? 0.2 : 0.6)
+            raster.scale(isMobile() ? 0.25 : 0.6)
 
             // Set initial velocity for each ball
             const velocity = new Point(Math.random() * 8 - 5, Math.random() * 8 - 5);
@@ -36,7 +36,7 @@ export const BouncingBalls: React.FC = () => {
         const onFrame = (event: paper.Event) => {
             // Update position for each ball
             balls.forEach(ball => {
-                ball.velocity.x *= 1.0;
+                ball.velocity.x *= isMobile() ? 0.8 : 1.0;
                 ball.path.position = ball.path.position.add(ball.velocity);
 
                 // Bounce off walls
