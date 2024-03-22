@@ -23,7 +23,7 @@ export const BouncingBalls: React.FC = () => {
 
             })
 
-            raster.scale(0.3)
+            raster.scale(0.4)
 
             // Set initial velocity for each ball
             const velocity = new Point(Math.random() * 6 - 5, Math.random() * 6 - 5);
@@ -65,7 +65,7 @@ export const BouncingBalls: React.FC = () => {
 
     return (
         <div className={"flex flex-col justify-center items-center"}>
-            <canvas width={250} height={250} className={"bg-white rounded-full border-black "} ref={canvasRef} />
+            <canvas  width={450} height={250} className={"bg-white rounded-full border-black backdrop-invert "} ref={canvasRef} />
         </div>
     )
 };
