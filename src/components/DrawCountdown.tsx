@@ -29,10 +29,11 @@ export const DrawCountdown: React.FC<Props> = ({ draw }) => {
               </div>
               {timeLeft > 0 && (
           <div className="flex w-full items-center justify-center">
-            <p className="text-2xl">
-            Time left until {draw.gameName} draw: <span className={"text-ceefaxGreen"}>
+            <p className="text-2xl text-center">
+            Time left until {draw.gameName} draw: 
+            <div className={"text-ceefaxGreen"}>
                     {Math.floor(timeLeft / 1000) < 60 ? Math.floor(timeLeft / 1000) + " seconds" : Math.floor(timeLeft / 1000 / 60) + " minutes"}{" "}
-                </span>
+                </div>
             </p>
           </div>
         )}
@@ -47,12 +48,9 @@ export const DrawCountdown: React.FC<Props> = ({ draw }) => {
               </h4>
         <Link
           to="/live-draw"
-          style={{
-            pointerEvents: timeLeft > 0 ? "none" : "auto",
-            animation: timeLeft <= 0 ? "shiny 1s ease-in-out infinite alternate" : "none"
-          }}
+          className={`${timeLeft <= 0 ? "cursor-pointer" : "pointer-events-none" }`}
         >
-            <span className="text-ceefaxGreen blinking">Go to live draw</span>
+            <span className={`text-ceefaxGreen text-2xl ${timeLeft <= 0 ? "blinking" : "text-transparent" }`}>Go to live draw</span>
         </Link>
       </div>
     );
