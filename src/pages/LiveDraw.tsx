@@ -119,7 +119,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             {!winning && !losing && (
               <>
                 <BouncingBalls />
-                <div>{currentBall}</div>
+                <div className={"h-56"}>{currentBall}</div>
               </>
             )}
             {winning && (
