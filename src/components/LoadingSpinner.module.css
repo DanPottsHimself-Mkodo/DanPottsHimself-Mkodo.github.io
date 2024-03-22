@@ -1,5 +1,6 @@
 
 .spinner-container {
+	@apply font-ceefax;
 	width: 50%;
 	height: 100px;
 	padding-top: 100px;
@@ -10,9 +11,11 @@ gap: 10px;
 }
 
 .spinner {
+	min-width: 50px;
+	min-height: 50px;
 	width: 50px;
 	height: 50px;
-    font-size: 70%;
+    font-size: 90%;
     font-weight: bold;
 	color: #F0F0F2;
   background-color: #F2293A;

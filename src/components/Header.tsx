@@ -4,11 +4,11 @@ export const Header = () => {
   const location = useLocation();
 
   return location.pathname !== "/" ? (
-    <div className="flex flex-row gap-8 bg-slate-600 text-white items-center justify-center py-2">
+    <div className="flex flex-row gap-8 text-white items-center justify-center py-2 bg-trueBlack border-b-4 border-gray-800">
       <Link to="/">
         <button
-          className={`text-white hover:text-imperial visited:text-white ${
-            location.pathname.includes("home") ? "text-slate-400" : ""
+          className={`font-black text-2xl w-full flex-grow font-ceefax ${
+            location.pathname.includes("home") ? "text-slate-400" : "text-ceefaxBlue"
           }`}
         >
           Home
@@ -16,8 +16,8 @@ export const Header = () => {
       </Link>
       <Link to="/results">
         <button
-          className={`text-white hover:text-imperial visited:text-white ${
-            location.pathname.includes("results") ? "text-slate-400" : ""
+          className={`font-black text-2xl w-full flex-grow font-ceefax ${
+            location.pathname.includes("results") ? "text-slate-400" : "text-ceefaxRed"
           }`}
         >
           Results
@@ -25,8 +25,8 @@ export const Header = () => {
       </Link>
       <Link to="/scan">
         <button
-          className={`text-white hover:text-imperial visited:text-white ${
-            location.pathname.includes("scan") ? "text-slate-400" : ""
+          className={`font-black text-2xl w-full flex-grow font-ceefax ${
+            location.pathname.includes("scan") ? "text-slate-400" : "text-ceefaxGreen"
           }`}
         >
           Scan
@@ -34,8 +34,8 @@ export const Header = () => {
       </Link>
       <Link to="/live-draw">
         <button
-          className={`text-white hover:text-imperial visited:text-white ${
-            location.pathname.includes("live-draw") ? "text-slate-400" : ""
+          className={`font-black text-2xl w-full flex-grow font-ceefax ${
+            location.pathname.includes("live-draw") ? "text-slate-400" : "text-ceefaxYellow "
           }`}
         >
           Live Draw

@@ -11,7 +11,9 @@ module.exports = {
         "wine": "#73272D",
         "trueBlack": "#000000",
         "ceefaxBlue": "#0000FF",
-        "ceefaxYellow": "#FFFF00"
+        "ceefaxYellow": "#FFFF00",
+        "ceefaxRed": "#FF0000",
+        "ceefaxGreen": "#0f0"
       },
       boxShadow: {
         scannerOverlay: "0 0 0 99999px rgba(0, 0, 0, 0.5);"

@@ -1,5 +1,4 @@
 import TicketScanner, {stopVideoTracks} from "../components/Scanner";
-import CrossIcon from "../icons/CrossIcon";
 import {isMobile} from "../util/isMobile";
 import {UseMobile} from "./scanning/use-mobile";
 
@@ -18,7 +17,6 @@ function Scan() {
                 <div className={"w-8"}/>
                 <h1 className={"font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"}>Ticket Scanner</h1>
                 <button className={"flex justify-center items-center w-8 h-8"} onClick={onCloseClick}>
-                    {/*<CrossIcon/>*/}
                     <img src={"/assets/ceefax_cross.png"} alt={"Close ticket scanner"} width={32} />
                 </button>
             </header>

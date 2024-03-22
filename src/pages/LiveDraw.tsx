@@ -1,5 +1,4 @@
-import { useRef, useEffect, useState } from "react";
-import MovingBall from "../components/MovingBall";
+import { useEffect, useState } from "react";
 import { TicketContainer } from "../components/TicketContainer";
 import ticketData from "../data/ticketData.json";
 import { Ticket } from "../interfaces";
@@ -9,11 +8,10 @@ import { DrawData } from "../models/Draws";
 import { JSX } from "react/jsx-runtime";
 import RollingBall from "../components/RollingBall";
 import "./FireworkStyles.css";
+import { BouncingBalls } from "../components/bouncing-ball/BouncingBall";
 
 function LiveDraw() {
-  const [positions, setPositions] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
-  const parentRef = useRef<HTMLDivElement | null>(null);
   const tickets: Ticket[] = ticketData;
   const draws: DrawData[] = drawData;
   const currentDraw = draws[0];
@@ -22,10 +20,7 @@ function LiveDraw() {
   const [winning, setWinning] = useState(false);
   const [losing, setLosing] = useState(false);
   const [intermidiateWinning, setIntermidiateWinning] = useState(false);
-
-  const randomIntFromInterval = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
+  const [currentBallCounter, setCurrentBallCounter] = useState<number>(0);
 
   useEffect(() => {
     if (winning || intermidiateWinning) {
@@ -49,35 +44,23 @@ function LiveDraw() {
   }, [drawnBalls, tickets]);
 
   useEffect(() => {
-    const parentWidth = parentRef.current ? parentRef.current.offsetWidth : 0;
-    const newPositions = Array.from({ length: 40 }, () =>
-      randomIntFromInterval(25, parentWidth - 100)
-    );
-
-    newPositions.forEach((pos, i) => {
-      setTimeout(() => {
-        setPositions((prevPositions) => [...prevPositions, pos]);
-      }, i * 100); // Change this value to adjust the interval
-    });
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
-      setDrawnBalls([
-        ...drawnBalls,
-        currentDraw.winningNumbers[drawnBalls.length],
-      ]);
-      setBall(
-        <RollingBall
-          ballNumber={currentDraw.winningNumbers[drawnBalls.length - 1]}
-        />
-      );
+      if (currentBallCounter <= currentDraw.winningNumbers.length + 1) {
+        if (currentBallCounter > currentDraw.winningNumbers.length) {
+          setBall(<></>);
+        }
+
+        setDrawnBalls([
+          ...drawnBalls,
+          currentDraw.winningNumbers[drawnBalls.length],
+        ]);
+        setBall(
+          <RollingBall
+            ballNumber={currentDraw.winningNumbers[drawnBalls.length - 1]}
+          />
+        );
+        setCurrentBallCounter(currentBallCounter + 1);
+      }
     }, 5000);
 
     return () => {
@@ -85,55 +68,87 @@ function LiveDraw() {
     };
   }, [drawnBalls]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
-    <div className="App">
-      <div className="flex flex-col justify-start items-center space-between pt-6 relative">
-        <h1 className="text-lg">Live Draw</h1>
+    <div>
+      <header
+        className={
+          "flex w-full h-16 items-center text-center px-4 bg-trueBlack"
+        }
+      >
+        <div className={"w-8"} />
+        <h1
+          className={
+            "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
+          }
+        >
+          Live Draw
+        </h1>
+      </header>
+      <div
+        className={
+          "flex flex-col justify-start items-center bg-trueBlack min-h-screen w-screen"
+        }
+      >
         {loading ? (
           <div className="w-1/2">
             <LoadingSpinner />
           </div>
         ) : null}
-        {(!winning && !losing) && (
-          <div
-            ref={parentRef}
-            className={`w-1/2 h-64 py-6  pb-10 rounded-full flex flex-wrap justify-center items-center bg-blue-200 relative border-8 border-black ${
-              loading ? "invisible" : ""
-            }`}
-          >
-            {positions.map((pos, i) => (
-              <MovingBall key={i} leftPosition={pos} number={i} />
-            ))}
-            <div className={"pt-20"}>{currentBall}</div>
-          </div>
-        )}
-        {winning && (
-          <div>
-            <p className="green flex justify-center text-4xl">
-              <span className="blinking text-2xl">YOU HAVE WON!</span>
-            </p>
-            <p className="green flex justify-center text-8xl">£1000000!</p>
-          </div>
-        )}
-        {winning && (
-          <div className="relative w-full">
-            <div className="firework"></div>
-            <div className="firework"></div>
-            <div className="firework"></div>
-          </div>
-        )}
 
-        {losing && (
-          <>
-            <p className="green flex justify-center text-4xl">
-              <span className="blinking text-4xl">BETTER LUCK NEXT TIME!</span>
-            </p>
-            <p className="green flex justify-center text-2xl">
-              BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
-            </p>
-          </>
-        )}
-        <TicketContainer tickets={tickets} drawnBalls={drawnBalls} />
+        <div
+          className={`${loading ? "invisible" : ""} flex flex-row w-full px-8`}
+        >
+          <TicketContainer
+            tickets={tickets}
+            drawnBalls={drawnBalls}
+            draws={currentDraw}
+            currentBallCounter={currentBallCounter}
+          />
+
+          <div className={"flex flex-col justify-center w-1/2 px-8"}>
+            {!winning && !losing && (
+              <>
+                <BouncingBalls />
+                <div>{currentBall}</div>
+              </>
+            )}
+            {winning && (
+              <div>
+                <p className="green flex justify-center text-4xl">
+                  <span className="blinking text-2xl font-ceefax">YOU HAVE WON!</span>
+                </p>
+                <p className="green flex justify-center text-8xl font-ceefax">£1000000!</p>
+                <p className="flex justify-center text-ceefaxYellow text-xl font-ceefax">Call 0800 28389627 to claim your prize</p>
+
+              </div>
+            )}
+            {winning && (
+              <div className="relative w-full">
+                <div className="firework"></div>
+                <div className="firework"></div>
+                <div className="firework"></div>
+              </div>
+            )}
+            {losing && (
+              <>
+                <p className="green flex justify-center font-ceefax px-8 text-center">
+                  <span className="blinking text-4xl">
+                    BETTER LUCK NEXT TIME!
+                  </span>
+                </p>
+                <p className="green flex justify-center text-2xl font-ceefax">
+                  BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
+                </p>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
