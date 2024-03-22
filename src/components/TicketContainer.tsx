@@ -1,11 +1,11 @@
-import { Ticket } from "../interfaces";
 import Ball from "./Ball";
 import React from "react";
 import {DrawData} from "../models/Draws";
+import {Ticket} from "../models/Tickets";
 
-export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[], drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
+export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[] | null, drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
     return (
-        <div className={"flex flex-col justify-center text-center w-1/2 gap-3 font-ceefax"}>
+        <div className={"flex flex-col justify-center text-center w-full md:w-1/2 gap-3 font-ceefax md:self-auto self-end"}>
 
             <div className={"border-2 border-dashed border-ceefaxYellow flex flex-col pt-2"}>
                 <p className={"text-ceefaxYellow flex-grow font-ceefax"}>Winning Numbers</p>
@@ -23,14 +23,14 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
 
             </div>
 
-            <div className={"border-2 border-ceefaxYellow border-dashed pt-2 p-4 flex flex-col gap-2"}>
+            {tickets && <div className={"border-2 border-ceefaxYellow border-dashed pt-2 p-4 flex flex-col gap-2"}>
                 <p className={"text-ceefaxYellow flex-grow font-ceefax"}>My tickets</p>
                 {
                     tickets.map((ticket: Ticket, i: number) => (
                         <div key={i} className="flex flex-row gap-4 justify-center text-center">
-                            <h4 className="text-white self-center font-bold">Line {i + 1}:</h4>
+                            <h4 className="text-white self-center font-bold"><span className={"hidden md:inline"}>Line</span> {i + 1}:</h4>
                             <div className={"flex justify-between gap-x-4"}>
-                                {ticket.balls.map((ball: number) => {
+                                {ticket.pickedNumbers.map((ball: number) => {
                                         const checked = drawnBalls.includes(ball)
                                         return (<Ball key={ball} number={ball} checked={checked}/>)
                                     }
@@ -39,7 +39,7 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
                         </div>
                     ))
                 }
-            </div>
+            </div>}
 
         </div>
     );

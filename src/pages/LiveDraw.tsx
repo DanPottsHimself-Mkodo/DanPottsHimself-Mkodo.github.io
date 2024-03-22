@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TicketContainer } from "../components/TicketContainer";
-import ticketData from "../data/ticketData.json";
-import { Ticket } from "../interfaces";
 import LoadingSpinner from "../components/LoadingSpinner";
 import drawData from "../data/draws.json";
 import { DrawData } from "../models/Draws";
@@ -9,10 +7,15 @@ import { JSX } from "react/jsx-runtime";
 import RollingBall from "../components/RollingBall";
 import "./FireworkStyles.css";
 import { BouncingBalls } from "../components/bouncing-ball/BouncingBall";
+import {Ticket} from "../models/Tickets";
 
-function LiveDraw() {
+interface Props {
+  purchasedTicket?: Ticket;
+}
+
+const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
-  const tickets: Ticket[] = ticketData;
+  const tickets: Ticket[] | null = purchasedTicket ? [purchasedTicket] : null;
   const draws: DrawData[] = drawData;
   const currentDraw = draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
@@ -27,14 +30,16 @@ function LiveDraw() {
       return;
     }
 
-    tickets.forEach((ticket) => {
-      if (ticket.balls.every((ball) => drawnBalls.includes(ball))) {
-        setIntermidiateWinning(true);
-        setTimeout(() => {
-          setWinning(true);
-        }, 13000);
-      }
-    });
+    if (tickets) {
+      tickets.forEach((ticket) => {
+        if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
+          setIntermidiateWinning(true);
+          setTimeout(() => {
+            setWinning(true);
+          }, 13000);
+        }
+      });
+    }
 
     if (drawnBalls.length >= 7) {
       setTimeout(() => {
@@ -75,13 +80,12 @@ function LiveDraw() {
   }, []);
 
   return (
-    <div>
+    <>
       <header
         className={
           "flex w-full h-16 items-center text-center px-4 bg-trueBlack"
         }
       >
-        <div className={"w-8"} />
         <h1
           className={
             "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
@@ -102,7 +106,7 @@ function LiveDraw() {
         ) : null}
 
         <div
-          className={`${loading ? "invisible" : ""} flex flex-row w-full px-8`}
+          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-8`}
         >
           <TicketContainer
             tickets={tickets}
@@ -111,7 +115,7 @@ function LiveDraw() {
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-1/2 px-8"}>
+          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
@@ -121,10 +125,10 @@ function LiveDraw() {
             {winning && (
               <div>
                 <p className="green flex justify-center text-4xl">
-                  <span className="blinking text-2xl font-ceefax">YOU HAVE WON!</span>
+                  <span className="blinking text-lg md:text-2xl font-ceefax">YOU HAVE WON!</span>
                 </p>
-                <p className="green flex justify-center text-8xl font-ceefax">£1000000!</p>
-                <p className="flex justify-center text-ceefaxYellow text-xl font-ceefax">Call 0800 28389627 to claim your prize</p>
+                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£1000000!</p>
+                <p className="flex justify-center text-ceefaxYellow md:text-xl font-ceefax md:mb-0 mb-16">Call 0800 28389627 to claim your prize</p>
 
               </div>
             )}
@@ -136,21 +140,21 @@ function LiveDraw() {
               </div>
             )}
             {losing && (
-              <>
-                <p className="green flex justify-center font-ceefax px-8 text-center">
-                  <span className="blinking text-4xl">
+              <div className={"mb-8 md:mb-0"}>
+                <p className="green flex justify-center font-ceefax md:px-8 text-center mb-4 md:mb-0">
+                  <span className="blinking text-xl md:text-4xl">
                     BETTER LUCK NEXT TIME!
                   </span>
                 </p>
-                <p className="green flex justify-center text-2xl font-ceefax px-8 text-center">
+                <p className="green flex justify-center md:text-2xl font-ceefax md:px-8 text-center">
                   BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
                 </p>
-              </>
+              </div>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
