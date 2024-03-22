@@ -151,6 +151,15 @@
     top: 60%;
     animation-delay: -0.4s;
   }
+
+  .invisibleBall {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+  }
   
   
   

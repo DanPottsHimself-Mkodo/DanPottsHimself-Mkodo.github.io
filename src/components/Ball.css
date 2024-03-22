@@ -1,8 +1,7 @@
 
 .static {
-	width: 50px;
-	height: 50px;
-    font-size: 130%;
+	width: 35px;
+	height: 35px;
     font-weight: bold;
 	color: #F0F0F2;
   background-color: #F2293A;
@@ -19,9 +18,8 @@ background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d
 }
 
 .matched {
-	width: 50px;
-	height: 50px;
-	font-size: 130%;
+	width: 35px;
+	height: 35px;
 	font-weight: bold;
 	color: #F0F0F2;
 	background-color: #4C9A2A;
@@ -35,4 +33,18 @@ background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #F2293A 3%, #73272d
 	background: -moz-radial-gradient(65% 15%, circle, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
 	background: -o-radial-gradient(65% 15%, circle, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
 	background: radial-gradient(circle at 65% 15%, #F0F0F2 1px, #68BB59 3%, #1E5631 60%, #4C9A2A 100%);
+}
+
+@media (min-width: 700px) {
+	.static {
+		width: 50px;
+		height: 50px;
+		font-size: 130%;
+	}
+
+	.matched {
+		width: 50px;
+		height: 50px;
+		font-size: 130%;
+	}
 }

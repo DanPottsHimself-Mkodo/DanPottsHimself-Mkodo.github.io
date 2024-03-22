@@ -28,10 +28,14 @@ module.exports = {
         scanner: "scanner 2s ease-in-out infinite"
       },
       width: {
+        "8/10": "80%",
         "9/10": "90%"
       },
       fontFamily: {
         "ceefax": "modesevenregular"
+      },
+      scale: {
+        "70": "70%"
       }
     },
   },
