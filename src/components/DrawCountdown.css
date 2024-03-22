@@ -9,3 +9,5 @@
       text-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0, 0 0 50px #ff0, 0 0 60px #ff0;
     }
 }
+
+.blinking {color: #0f0; animation: blink 0.75s steps(1, end) infinite;}
