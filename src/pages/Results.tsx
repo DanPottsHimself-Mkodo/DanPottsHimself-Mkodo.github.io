@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from "react";
-import paper, { Point, Raster } from "paper";
+import React from "react";
 import resultInfo from "../data/results.json";
 import Ball from "../components/Ball";
 import { Draw } from "../interfaces";
