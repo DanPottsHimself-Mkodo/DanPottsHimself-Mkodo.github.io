@@ -142,7 +142,7 @@ function LiveDraw() {
                     BETTER LUCK NEXT TIME!
                   </span>
                 </p>
-                <p className="green flex justify-center text-2xl font-ceefax">
+                <p className="green flex justify-center text-2xl font-ceefax px-8 text-center">
                   BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
                 </p>
               </>
