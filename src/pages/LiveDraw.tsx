@@ -80,7 +80,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   }, []);
 
   return (
-    <>
+    <div className={"h-screen overflow-auto"}>
       <header
         className={
           "flex w-full h-16 items-center text-center px-4 bg-trueBlack"
@@ -96,7 +96,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
       </header>
       <div
         className={
-          "flex flex-col justify-start items-center bg-trueBlack min-h-screen w-screen"
+          "flex flex-col justify-start items-center bg-trueBlack min-h-screen w-screen pt-4 md:pt-0"
         }
       >
         {loading ? (
@@ -115,7 +115,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8 mb-16 md:mb-0"}>
+          <div className={"relative flex flex-col justify-center w-full md:w-1/2 md:px-8 mb-16 md:mb-0"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
@@ -154,7 +154,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
