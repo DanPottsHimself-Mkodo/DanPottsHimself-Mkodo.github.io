@@ -1,7 +1,7 @@
-import { Ticket } from "../interfaces";
 import Ball from "./Ball";
 import React from "react";
 import {DrawData} from "../models/Draws";
+import {Ticket} from "../models/Tickets";
 
 export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[], drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
     return (
@@ -30,7 +30,7 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
                         <div key={i} className="flex flex-row gap-4 justify-center text-center">
                             <h4 className="text-white self-center font-bold"><span className={"hidden md:inline"}>Line</span> {i + 1}:</h4>
                             <div className={"flex justify-between gap-x-4"}>
-                                {ticket.balls.map((ball: number) => {
+                                {ticket.pickedNumbers.map((ball: number) => {
                                         const checked = drawnBalls.includes(ball)
                                         return (<Ball key={ball} number={ball} checked={checked}/>)
                                     }

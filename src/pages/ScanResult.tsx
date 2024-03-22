@@ -23,7 +23,7 @@ const ScanResult: React.FC = () => {
     return (
         <div className={"bg-trueBlack h-full w-full flex flex-col text-white font-ceefax"}>
             {ticketDetails && <>
-                <LiveDraw />
+                <LiveDraw purchasedTicket={ticketDetails} />
             </>}
 
         </div>

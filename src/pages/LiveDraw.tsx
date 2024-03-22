@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TicketContainer } from "../components/TicketContainer";
 import ticketData from "../data/ticketData.json";
-import { Ticket } from "../interfaces";
 import LoadingSpinner from "../components/LoadingSpinner";
 import drawData from "../data/draws.json";
 import { DrawData } from "../models/Draws";
@@ -9,10 +8,15 @@ import { JSX } from "react/jsx-runtime";
 import RollingBall from "../components/RollingBall";
 import "./FireworkStyles.css";
 import { BouncingBalls } from "../components/bouncing-ball/BouncingBall";
+import {mapTicketResponseToTicket, Ticket} from "../models/Tickets";
 
-function LiveDraw() {
+interface Props {
+  purchasedTicket?: Ticket;
+}
+
+const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
-  const tickets: Ticket[] = ticketData;
+  const tickets: Ticket[] = purchasedTicket ? [purchasedTicket] : ticketData.map(mapTicketResponseToTicket);
   const draws: DrawData[] = drawData;
   const currentDraw = draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
@@ -28,7 +32,7 @@ function LiveDraw() {
     }
 
     tickets.forEach((ticket) => {
-      if (ticket.balls.every((ball) => drawnBalls.includes(ball))) {
+      if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
         setIntermidiateWinning(true);
         setTimeout(() => {
           setWinning(true);
