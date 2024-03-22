@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./Home.module.css";
 import "./TellyText.css";
-import { Link } from "react-router-dom";
 import TVScreenContent from "../components/TVScreenContent";
+import classNames from "classnames";
 
 function App() {
   const [checked, setChecked] = useState(false);
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className={styles["App"]}>
       <div className={styles["container"]}>
-        <div className={styles["tv"]}>
+        <div className={classNames(styles["tv"], "hidden lg:block")}>
           <input
             type="checkbox"
             className={styles["switchinput"]}
@@ -21,6 +21,9 @@ function App() {
             <TVScreenContent isChecked={checked}/>
           </div>
           <div className={styles["cover"]}></div>
+        </div>
+        <div className={"block lg:hidden w-full h-full"}>
+          <TVScreenContent isChecked={true}/>
         </div>
       </div>
     </div>
