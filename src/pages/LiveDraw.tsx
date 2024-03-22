@@ -53,7 +53,7 @@ function LiveDraw() {
 
     return (
         <div className="App">
-            <div className="flex flex-col justify-start items-center h-screen space-between pt-6">
+            <div className="flex flex-col justify-start items-center space-between pt-6">
                 <h1 className="text-lg">Live Draw</h1>
                 {loading ? (
                     <div className="w-1/2">

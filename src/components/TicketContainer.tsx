@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import { Ticket } from "../interfaces";
 import Ball from "./Ball";
 
 export const TicketContainer = ({ tickets, drawnBalls }: { tickets: Ticket[], drawnBalls: number[] }) => {
+    const [winning, setWinning] = useState(false);
+    
+    useEffect(() => {
+        if (winning) {
+            return;
+        }
+
+        tickets.forEach(ticket => {
+            if (ticket.balls.every(ball => drawnBalls.includes(ball))) {
+                setTimeout(() => {
+                    setWinning(true);
+                }, 12000);
+            }
+        })
+    }, [drawnBalls, tickets]);
+
     return (
         <div className="fixed bottom-0 p-6 h-2/6 bg-black w-full flex justify-center">
             <div className="w-1/2 flex flex-col gap-4">
