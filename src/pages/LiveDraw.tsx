@@ -15,7 +15,7 @@ interface Props {
 
 const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
-  const tickets: Ticket[] | null = purchasedTicket ? [purchasedTicket] : null;
+  const lines: number[][] | null = purchasedTicket ? purchasedTicket.pickedLines : null;
   const draws: DrawData[] = drawData;
   const currentDraw = draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
@@ -30,9 +30,9 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
       return;
     }
 
-    if (tickets) {
-      tickets.forEach((ticket) => {
-        if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
+    if (lines) {
+      lines.forEach((ticket) => {
+        if (ticket.every((ball) => drawnBalls.includes(ball))) {
           setIntermidiateWinning(true);
           setTimeout(() => {
             setWinning(true);
@@ -46,7 +46,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
         setLosing(true);
       }, 12000);
     }
-  }, [drawnBalls, tickets]);
+  }, [drawnBalls, lines]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -91,7 +91,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
           }
         >
-          Live Draw
+          {lines ? "Scan Results" : "Live Draw"}
         </h1>
       </header>
       <div
@@ -100,22 +100,22 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
         }
       >
         {loading ? (
-          <div className="w-1/2 px-4">
+          <div className="w-full md:w-1/2">
             <LoadingSpinner />
           </div>
         ) : null}
 
         <div
-          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-8`}
+          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-4 md:px-8`}
         >
           <TicketContainer
-            tickets={tickets}
+            lines={lines}
             drawnBalls={drawnBalls}
             draws={currentDraw}
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8"}>
+          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8 mb-16 md:mb-0"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
