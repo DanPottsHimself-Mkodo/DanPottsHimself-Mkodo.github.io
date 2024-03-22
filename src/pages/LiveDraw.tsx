@@ -91,7 +91,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
           }
         >
-          Live Draw
+          {lines ? "Scan Results" : "Live Draw"}
         </h1>
       </header>
       <div
