@@ -16,5 +16,5 @@ export interface DrawData {
     drawTime: string
     gameName: string
     winningNumbers: number[]
-    winAmounts: number[]
+    winAmounts: number
 }

@@ -4,10 +4,10 @@ export const Header = () => {
   const location = useLocation();
 
   return location.pathname !== "/" ? (
-    <div className="flex flex-row gap-8 text-white items-center justify-center py-2 bg-trueBlack border-b-4 border-gray-800">
+    <div className="flex flex-row gap-4 md:gap-8 text-white items-center justify-center py-2 bg-trueBlack border-b-4 border-gray-800 text-sm md:text-2xl">
       <Link to="/">
         <button
-          className={`font-black text-base md:text-2xl w-full flex-grow font-ceefax ${
+          className={`font-black w-full flex-grow font-ceefax ${
             location.pathname.includes("home") ? "text-slate-400" : "text-ceefaxBlue"
           }`}
         >
@@ -16,7 +16,7 @@ export const Header = () => {
       </Link>
       <Link to="/results">
         <button
-          className={`font-black text-base md:text-2xl w-full flex-grow font-ceefax ${
+          className={`font-black w-full flex-grow font-ceefax ${
             location.pathname.includes("results") ? "text-slate-400" : "text-ceefaxRed"
           }`}
         >
@@ -25,7 +25,7 @@ export const Header = () => {
       </Link>
       <Link to="/scan">
         <button
-          className={`font-black text-base md:text-2xl w-full flex-grow font-ceefax ${
+          className={`font-black w-full flex-grow font-ceefax ${
             location.pathname.includes("scan") ? "text-slate-400" : "text-ceefaxGreen"
           }`}
         >
@@ -34,7 +34,7 @@ export const Header = () => {
       </Link>
       <Link to="/live-draw">
         <button
-          className={`font-black text-base md:text-2xl w-full flex-grow font-ceefax ${
+          className={`font-black w-full flex-grow font-ceefax ${
             location.pathname.includes("live-draw") ? "text-slate-400" : "text-ceefaxYellow "
           }`}
         >

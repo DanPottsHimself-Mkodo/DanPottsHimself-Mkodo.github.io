@@ -15,9 +15,9 @@ interface Props {
 
 const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
-  const tickets: Ticket[] | null = purchasedTicket ? [purchasedTicket] : null;
+  const lines: number[][] | null = purchasedTicket ? purchasedTicket.pickedLines : null;
   const draws: DrawData[] = drawData;
-  const currentDraw = draws[0];
+  const currentDraw = purchasedTicket ? (draws.find((draw) => draw.drawID === purchasedTicket.drawID) || draws[0]) : draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
   const [currentBall, setBall] = useState<JSX.Element>();
   const [winning, setWinning] = useState(false);
@@ -30,9 +30,9 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
       return;
     }
 
-    if (tickets) {
-      tickets.forEach((ticket) => {
-        if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
+    if (lines) {
+      lines.forEach((ticket) => {
+        if (ticket.every((ball) => drawnBalls.includes(ball))) {
           setIntermidiateWinning(true);
           setTimeout(() => {
             setWinning(true);
@@ -46,7 +46,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
         setLosing(true);
       }, 12000);
     }
-  }, [drawnBalls, tickets]);
+  }, [drawnBalls, lines]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -80,7 +80,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   }, []);
 
   return (
-    <>
+    <div className={"h-screen overflow-auto"}>
       <header
         className={
           "flex w-full h-16 items-center text-center px-4 bg-trueBlack"
@@ -91,31 +91,31 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
           }
         >
-          Live Draw
+          {lines ? "Scan Results" : "Live Draw"}
         </h1>
       </header>
       <div
         className={
-          "flex flex-col justify-start items-center bg-trueBlack min-h-screen w-screen"
+          "flex flex-col justify-start items-center bg-trueBlack min-h-screen w-screen pt-4 md:pt-0"
         }
       >
         {loading ? (
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2">
             <LoadingSpinner />
           </div>
         ) : null}
 
         <div
-          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-8`}
+          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-4 md:px-8`}
         >
           <TicketContainer
-            tickets={tickets}
+            lines={lines}
             drawnBalls={drawnBalls}
             draws={currentDraw}
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8"}>
+          <div className={"relative flex flex-col justify-center w-full md:w-1/2 md:px-8 mb-16 md:mb-0"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
@@ -127,7 +127,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
                 <p className="green flex justify-center text-4xl">
                   <span className="blinking text-lg md:text-2xl font-ceefax">YOU HAVE WON!</span>
                 </p>
-                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£1000000!</p>
+                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£{currentDraw.winAmounts}!</p>
                 <p className="flex justify-center text-ceefaxYellow md:text-xl font-ceefax md:mb-0 mb-16">Call 0800 28389627 to claim your prize</p>
 
               </div>
@@ -154,7 +154,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

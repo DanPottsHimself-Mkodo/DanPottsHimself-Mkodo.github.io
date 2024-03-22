@@ -1,17 +1,15 @@
-export interface Tickets {
-    tickets: Ticket[]
-}
-
 export interface Ticket {
     ticketID: string
     purchaseDate: Date
-    pickedNumbers: number[]
+    pickedLines: number[][];
+    drawID: string;
 }
 
 export function mapTicketResponseToTicket(response: any) {
     return {
         ticketID: response.id,
-        pickedNumbers: response.balls,
-        purchaseDate: new Date(response.purchaseDate)
+        pickedLines: response.lines,
+        purchaseDate: new Date(response.purchaseDate),
+        drawID: response.drawID
     }
 }
