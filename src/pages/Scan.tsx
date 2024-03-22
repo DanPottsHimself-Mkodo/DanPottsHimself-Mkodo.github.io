@@ -21,7 +21,9 @@ function Scan() {
                 </button>
             </header>
             {isMobile() ? (
-                <TicketScanner onScan={(ticketId) => alert(ticketId)}/>
+                <TicketScanner onScan={(ticketId) => {
+                    window.location.pathname = `/scan/result/${ticketId}`;
+                }}/>
             ) : (
                 <UseMobile/>
             )}
