@@ -8,6 +8,7 @@ import drawData from "../data/draws.json";
 import { DrawData } from "../models/Draws";
 import { JSX } from "react/jsx-runtime";
 import RollingBall from "../components/RollingBall";
+import {BouncingBalls} from "../components/bouncing-ball/BouncingBall";
 
 function LiveDraw() {
     const [positions, setPositions] = useState<number[]>([]);
@@ -60,18 +61,17 @@ function LiveDraw() {
                         <LoadingSpinner />
                     </div>
                 ) : null}
-                <div
-                    ref={parentRef}
-                    className={`w-1/2 h-64 py-6  pb-10 rounded-full flex flex-wrap justify-center items-center bg-blue-200 relative border-8 border-black ${
-                        loading ? "invisible" : ""
-                    }`}
-                >
-                    {positions.map((pos, i) => (<MovingBall key={i} leftPosition={pos} number={i} />
-                    ))}
-                    <div className={"pt-20"}>{currentBall}</div>
+
+                    <div className={`${loading ? "invisible" :""}`}>
+                        <BouncingBalls />
+                    </div>
+
+                    {/*{positions.map((pos, i) => (<MovingBall key={i} leftPosition={pos} number={i} />*/}
+                    {/*))}*/}
+                    <div>{currentBall}</div>
                 </div>
                 <TicketContainer tickets={tickets} drawnBalls={drawnBalls} />
-            </div>
+
         </div>
     );
 }
