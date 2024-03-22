@@ -115,7 +115,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8"}>
+          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8 mb-16 md:mb-0"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
