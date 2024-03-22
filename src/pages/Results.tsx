@@ -8,8 +8,8 @@ import { DrawCountdown } from "../components/DrawCountdown";
 function Results() {
   const draws: Draw[] = resultInfo;
   return (
-    <div className="App">
-      <div className="flex flex-col justify-start items-center h-screen space-between pt-6 gap-12">
+    <div className="App h-screen">
+      <div className="flex flex-col justify-start items-center h-full overflow-auto space-between pt-6 pb-16 gap-12">
         {draws.map((draw, index) => {
           if(new Date(draw.drawTime).setHours(0,0,0,0) === new Date().setHours(0,0,0,0)) return ( <DrawCountdown draw={draw} key={index} />)
          
