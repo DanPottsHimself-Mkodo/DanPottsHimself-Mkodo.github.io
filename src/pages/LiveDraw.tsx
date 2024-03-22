@@ -45,16 +45,15 @@ function LiveDraw() {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if (currentFoo < currentDraw.winningNumbers.length) {
+            if (currentFoo <= currentDraw.winningNumbers.length + 1) {
+                if (currentFoo > currentDraw.winningNumbers.length) {
+                    setBall(<></>)
+                }
+
                 setDrawnBalls([...drawnBalls, currentDraw.winningNumbers[drawnBalls.length]])
                 setBall(<RollingBall ballNumber={currentDraw.winningNumbers[drawnBalls.length - 1]} />)
                 setCurrentFoo(currentFoo + 1)
-
-                if (currentFoo === currentDraw.winningNumbers.length) {
-                    setBall(<></>)
-                }
             }
-
         }, 5000)
 
         return () => {
@@ -101,10 +100,12 @@ function LiveDraw() {
                             <p className={"text-ceefaxYellow flex-grow font-ceefax"}>Winning Numbers</p>
                             <div className={"flex justify-center gap-3 p-4"}>
                                 {
-                                    drawnBalls.map((ball: number) => {
-                                        return (
-                                            <Ball key={ball} number={ball} checked={false} />
-                                        )
+                                    drawnBalls.map((ball: number, index) => {
+                                        if(index < currentDraw.winningNumbers.length && index < currentFoo - 2) {
+                                            return (
+                                                <Ball key={ball} number={ball} checked={false} />
+                                            )
+                                        }
                                     })
                                 }
                             </div>
