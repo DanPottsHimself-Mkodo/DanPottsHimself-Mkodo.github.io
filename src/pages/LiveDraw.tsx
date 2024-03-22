@@ -44,7 +44,7 @@ function LiveDraw() {
     if (drawnBalls.length >= 7) {
       setTimeout(() => {
         setLosing(true);
-      }, 13000);
+      }, 12000);
     }
   }, [drawnBalls, tickets]);
 
@@ -94,7 +94,7 @@ function LiveDraw() {
             <LoadingSpinner />
           </div>
         ) : null}
-        {!winning && !losing && (
+        {(!winning && !losing) && (
           <div
             ref={parentRef}
             className={`w-1/2 h-64 py-6  pb-10 rounded-full flex flex-wrap justify-center items-center bg-blue-200 relative border-8 border-black ${
@@ -116,13 +116,11 @@ function LiveDraw() {
           </div>
         )}
         {winning && (
-          <>
+          <div className="relative w-full">
             <div className="firework"></div>
             <div className="firework"></div>
             <div className="firework"></div>
-            <div className="firework"></div>
-            <div className="firework"></div>
-          </>
+          </div>
         )}
 
         {losing && (
