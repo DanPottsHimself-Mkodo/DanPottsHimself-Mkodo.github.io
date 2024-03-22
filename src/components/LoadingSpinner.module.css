@@ -1,27 +1,14 @@
 
 .spinner-container {
-	@apply font-ceefax;
-	width: 50%;
+	@apply flex font-ceefax w-8/10 md:w-1/2 gap-2 md:gap-4 justify-around;
 	height: 100px;
-	padding-top: 100px;
 	margin: 0 auto;
-display: flex;
-justify-content: space-around;
-gap: 10px;
 }
 
 .spinner {
-	min-width: 50px;
-	min-height: 50px;
-	width: 50px;
-	height: 50px;
-    font-size: 90%;
-    font-weight: bold;
-	color: #F0F0F2;
+	@apply flex w-8 md:w-12 h-8 md:h-12 flex-shrink-0 font-bold text-white text-center md:text-lg;
   background-color: #F2293A;
 	border-radius: 50px;
-	text-align: center;
-	display: flex;
 	align-self: center;
 	align-items: center;
 justify-content: center;
