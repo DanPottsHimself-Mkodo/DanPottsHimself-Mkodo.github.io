@@ -101,8 +101,8 @@ const TicketScanner: React.FC<Props> = ({onScan}) => {
             ) : (
                 <Modal isOpen={isPermissionsPopupVisible} closeModal={() => setIsPermissionsPopupVisible(false)}>
                     <div className={"flex flex-col px-4 pb-6 text-center"}>
-                        <h2 className={"font-black text-xl mb-4"}>Permission needed</h2>
-                        <p>In order to scan tickets, you need to grant camera permission for this website</p>
+                        <h2 className={"font-ceefax text-ceefaxYellow text-xl mb-4"}>Permission needed</h2>
+                        <p className={"font-ceefax"}>In order to scan tickets, you need to grant camera permission for this website</p>
                     </div>
                 </Modal>
             )}
