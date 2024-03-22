@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import tickets from "../data/ticketData.json";
-import {Ticket} from "../models/Tickets";
+import {mapTicketResponseToTicket, Ticket} from "../models/Tickets";
 import {useParams} from "react-router-dom";
 import LiveDraw from "./LiveDraw";
 
@@ -11,11 +11,7 @@ const ScanResult: React.FC = () => {
         if (ticketId) {
             const purchasedTicket = tickets.find((ticket) => ticket.id === ticketId);
             if (purchasedTicket) {
-                setTicketDetails({
-                    ticketID: purchasedTicket.id,
-                    pickedNumbers: purchasedTicket.balls,
-                    purchaseDate: new Date(purchasedTicket.purchaseDate)
-                })
+                setTicketDetails(mapTicketResponseToTicket(purchasedTicket));
             }
         }
     }, [ticketId]);
