@@ -142,9 +142,11 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
             {losing && (
               <div className={"mb-8 md:mb-0"}>
                 <p className="green flex justify-center font-ceefax md:px-8 text-center mb-4 md:mb-0">
-                  <span className="blinking text-xl md:text-4xl">
+                  {Boolean(!purchasedTicket) ? <span className="blinking text-xl md:text-4xl">
+                    PLEASE CHECK YOUR TICKETS TO SEE IF YOU HAVE WON
+                  </span> : <span className="blinking text-xl md:text-4xl">
                     BETTER LUCK NEXT TIME!
-                  </span>
+                  </span>}
                 </p>
                 <p className="green flex justify-center md:text-2xl font-ceefax md:px-8 text-center">
                   BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
