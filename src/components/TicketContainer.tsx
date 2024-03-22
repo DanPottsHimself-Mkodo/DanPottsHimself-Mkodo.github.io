@@ -3,7 +3,7 @@ import React from "react";
 import {DrawData} from "../models/Draws";
 import {Ticket} from "../models/Tickets";
 
-export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[], drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
+export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[] | null, drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
     return (
         <div className={"flex flex-col justify-center text-center w-full md:w-1/2 gap-3 font-ceefax md:self-auto self-end"}>
 
@@ -23,7 +23,7 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
 
             </div>
 
-            <div className={"border-2 border-ceefaxYellow border-dashed pt-2 p-4 flex flex-col gap-2"}>
+            {tickets && <div className={"border-2 border-ceefaxYellow border-dashed pt-2 p-4 flex flex-col gap-2"}>
                 <p className={"text-ceefaxYellow flex-grow font-ceefax"}>My tickets</p>
                 {
                     tickets.map((ticket: Ticket, i: number) => (
@@ -39,7 +39,7 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
                         </div>
                     ))
                 }
-            </div>
+            </div>}
 
         </div>
     );

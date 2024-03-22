@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { TicketContainer } from "../components/TicketContainer";
-import ticketData from "../data/ticketData.json";
 import LoadingSpinner from "../components/LoadingSpinner";
 import drawData from "../data/draws.json";
 import { DrawData } from "../models/Draws";
@@ -8,7 +7,7 @@ import { JSX } from "react/jsx-runtime";
 import RollingBall from "../components/RollingBall";
 import "./FireworkStyles.css";
 import { BouncingBalls } from "../components/bouncing-ball/BouncingBall";
-import {mapTicketResponseToTicket, Ticket} from "../models/Tickets";
+import {Ticket} from "../models/Tickets";
 
 interface Props {
   purchasedTicket?: Ticket;
@@ -16,7 +15,7 @@ interface Props {
 
 const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
-  const tickets: Ticket[] = purchasedTicket ? [purchasedTicket] : ticketData.map(mapTicketResponseToTicket);
+  const tickets: Ticket[] | null = purchasedTicket ? [purchasedTicket] : null;
   const draws: DrawData[] = drawData;
   const currentDraw = draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
@@ -31,14 +30,16 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
       return;
     }
 
-    tickets.forEach((ticket) => {
-      if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
-        setIntermidiateWinning(true);
-        setTimeout(() => {
-          setWinning(true);
-        }, 13000);
-      }
-    });
+    if (tickets) {
+      tickets.forEach((ticket) => {
+        if (ticket.pickedNumbers.every((ball) => drawnBalls.includes(ball))) {
+          setIntermidiateWinning(true);
+          setTimeout(() => {
+            setWinning(true);
+          }, 13000);
+        }
+      });
+    }
 
     if (drawnBalls.length >= 7) {
       setTimeout(() => {
@@ -139,16 +140,16 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
               </div>
             )}
             {losing && (
-              <>
-                <p className="green flex justify-center font-ceefax px-8 text-center">
-                  <span className="blinking text-4xl">
+              <div className={"mb-8 md:mb-0"}>
+                <p className="green flex justify-center font-ceefax md:px-8 text-center mb-4 md:mb-0">
+                  <span className="blinking text-xl md:text-4xl">
                     BETTER LUCK NEXT TIME!
                   </span>
                 </p>
-                <p className="green flex justify-center text-2xl font-ceefax">
+                <p className="green flex justify-center md:text-2xl font-ceefax">
                   BUY YOUR TICKETS FOR THE NEXT DRAW FOR A CHANCE TO WIN BIG!
                 </p>
-              </>
+              </div>
             )}
           </div>
         </div>
