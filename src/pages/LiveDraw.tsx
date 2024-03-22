@@ -20,7 +20,7 @@ function LiveDraw() {
     const currentDraw = draws[0]
     const [drawnBalls, setDrawnBalls] = useState<number[]>([])
     const [currentBall, setBall] = useState<JSX.Element>()
-    const [currentFoo, setCurrentFoo] = useState<number>(0)
+    const [currentBallCounter, setCurrentBallCounter] = useState<number>(0)
 
     const randomIntFromInterval = (min: number, max: number) => {
         return Math.floor(Math.random() * (max - min + 1) + min)
@@ -45,14 +45,14 @@ function LiveDraw() {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if (currentFoo <= currentDraw.winningNumbers.length + 1) {
-                if (currentFoo > currentDraw.winningNumbers.length) {
+            if (currentBallCounter <= currentDraw.winningNumbers.length + 1) {
+                if (currentBallCounter > currentDraw.winningNumbers.length) {
                     setBall(<></>)
                 }
 
                 setDrawnBalls([...drawnBalls, currentDraw.winningNumbers[drawnBalls.length]])
                 setBall(<RollingBall ballNumber={currentDraw.winningNumbers[drawnBalls.length - 1]} />)
-                setCurrentFoo(currentFoo + 1)
+                setCurrentBallCounter(currentBallCounter + 1)
             }
         }, 5000)
 
@@ -60,8 +60,6 @@ function LiveDraw() {
             clearInterval(intervalId);
         };
     }, [drawnBalls])
-
-
 
     return (
         <div>
@@ -93,44 +91,8 @@ function LiveDraw() {
                             </div>
                         ) : null}
 
-                <div className={`${loading ? "invisible" :""} flex flex-row w-full ml-10`}>
-                    <div className={"flex flex-col justify-center text-center w-1/2 gap-3 "}>
-
-                        <div className={"border-2 border-dashed border-ceefaxYellow flex flex-col pt-2"}>
-                            <p className={"text-ceefaxYellow flex-grow font-ceefax"}>Winning Numbers</p>
-                            <div className={"flex justify-center gap-3 p-4"}>
-                                {
-                                    drawnBalls.map((ball: number, index) => {
-                                        if(index < currentDraw.winningNumbers.length && index < currentFoo - 2) {
-                                            return (
-                                                <Ball key={ball} number={ball} checked={false} />
-                                            )
-                                        }
-                                    })
-                                }
-                            </div>
-
-                        </div>
-
-                        <div className={"border-2 border-ceefaxYellow border-dashed pt-2 p-4 flex flex-col gap-2"}>
-                            <p className={"text-ceefaxYellow flex-grow font-ceefax"}>My tickets</p>
-                            {
-                                tickets.map((ticket: Ticket, i: number) => (
-                                    <div key={i} className="flex flex-row gap-4 justify-center text-center">
-                                        <h4 className="text-white self-center font-bold">Line {i + 1}:</h4>
-                                        <div className={"flex justify-between gap-x-4"}>
-                                            {ticket.balls.map((ball: number) => {
-                                                    const checked = drawnBalls.includes(ball)
-                                                    return (<Ball key={ball} number={ball} checked={checked}/>)
-                                                }
-                                            )}
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-
-                    </div>
+                <div className={`${loading ? "invisible" :""} flex flex-row w-full ml-20`}>
+                    <TicketContainer tickets={tickets} drawnBalls={drawnBalls} draws={currentDraw} currentBallCounter={currentBallCounter} />
 
                     <div className={"flex flex-col justify-center w-1/2"}>
                         <BouncingBalls />
