@@ -35,7 +35,7 @@ export const BouncingBalls: React.FC = () => {
         const onFrame = (event: paper.Event) => {
             // Update position for each ball
             balls.forEach(ball => {
-                ball.velocity.x *= 0.99;
+                ball.velocity.x *= 0.7;
                 ball.path.position = ball.path.position.add(ball.velocity);
 
                 // Bounce off walls
@@ -64,8 +64,12 @@ export const BouncingBalls: React.FC = () => {
     }, []); // Only run on initial mount
 
     return (
-        <div className={"flex flex-col justify-center items-center"}>
-            <canvas  width={450} height={250} className={"bg-white rounded-full border-black backdrop-invert "} ref={canvasRef} />
+
+        <div className={"flex flex-col items-center justify-center text-center"}>
+            <canvas width={350} height={350} className={"z-50 bg-white rounded-full border-4 border-slate-300"} ref={canvasRef} />
+
+            <img className={"absolute scale-110 "} src={"/assets/image-removebg-preview.png"} />
+
         </div>
     )
 };
