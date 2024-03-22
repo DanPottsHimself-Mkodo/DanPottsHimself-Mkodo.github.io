@@ -68,7 +68,7 @@ function LiveDraw() {
 
                     {/*{positions.map((pos, i) => (<MovingBall key={i} leftPosition={pos} number={i} />*/}
                     {/*))}*/}
-                    <div className={"pt-20"}>{currentBall}</div>
+                    <div>{currentBall}</div>
                 </div>
                 <TicketContainer tickets={tickets} drawnBalls={drawnBalls} />
 

@@ -26,7 +26,7 @@ export const BouncingBalls: React.FC = () => {
             raster.scale(0.3)
 
             // Set initial velocity for each ball
-            const velocity = new Point(Math.random() * 10 - 5, Math.random() * 10 - 5);
+            const velocity = new Point(Math.random() * 6 - 5, Math.random() * 6 - 5);
 
             balls.push({ path: raster, velocity });
         }
@@ -39,10 +39,10 @@ export const BouncingBalls: React.FC = () => {
                 ball.path.position = ball.path.position.add(ball.velocity);
 
                 // Bounce off walls
-                if (ball.path.bounds.left < 0 || ball.path.bounds.right > paper.view.size!.width) {
+                if (ball.path.position.x < 0 || ball.path.position.x > paper.view.size!.width) {
                     ball.velocity.x *= -1;
                 }
-                if (ball.path.bounds.top < 0 || ball.path.bounds.bottom > paper.view.size!.height) {
+                if (ball.path.position.y < 0 || ball.path.position.y > paper.view.size!.height) {
                     ball.velocity.y *= -1;
                 }
 
@@ -63,5 +63,9 @@ export const BouncingBalls: React.FC = () => {
         };
     }, []); // Only run on initial mount
 
-    return <canvas className={"bg-white rounded-full"} ref={canvasRef} />;
+    return (
+        <div className={"flex flex-col justify-center items-center"}>
+            <canvas width={250} height={250} className={"bg-white rounded-full border-black "} ref={canvasRef} />
+        </div>
+    )
 };
