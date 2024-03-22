@@ -5,7 +5,7 @@ import {DrawData} from "../models/Draws";
 
 export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter }: { tickets: Ticket[], drawnBalls: number[], draws: DrawData, currentBallCounter: number }) => {
     return (
-        <div className={"flex flex-col justify-center text-center w-1/2 gap-3 font-ceefax"}>
+        <div className={"flex flex-col justify-center text-center w-full md:w-1/2 gap-3 font-ceefax md:self-auto self-end"}>
 
             <div className={"border-2 border-dashed border-ceefaxYellow flex flex-col pt-2"}>
                 <p className={"text-ceefaxYellow flex-grow font-ceefax"}>Winning Numbers</p>
@@ -28,7 +28,7 @@ export const TicketContainer = ({ tickets, drawnBalls, draws, currentBallCounter
                 {
                     tickets.map((ticket: Ticket, i: number) => (
                         <div key={i} className="flex flex-row gap-4 justify-center text-center">
-                            <h4 className="text-white self-center font-bold">Line {i + 1}:</h4>
+                            <h4 className="text-white self-center font-bold"><span className={"hidden md:inline"}>Line</span> {i + 1}:</h4>
                             <div className={"flex justify-between gap-x-4"}>
                                 {ticket.balls.map((ball: number) => {
                                         const checked = drawnBalls.includes(ball)

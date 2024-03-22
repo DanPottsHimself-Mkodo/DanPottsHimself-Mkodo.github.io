@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import paper, {Point, Raster} from "paper";
+import {isMobile} from "../../util/isMobile";
 
 export const BouncingBalls: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,7 +24,7 @@ export const BouncingBalls: React.FC = () => {
 
             })
 
-            raster.scale(0.4)
+            raster.scale(isMobile() ? 0.2 : 0.4)
 
             // Set initial velocity for each ball
             const velocity = new Point(Math.random() * 6 - 5, Math.random() * 6 - 5);
@@ -65,7 +66,7 @@ export const BouncingBalls: React.FC = () => {
 
     return (
         <div className={"flex flex-col justify-center items-center"}>
-            <canvas  width={450} height={250} className={"bg-white rounded-full border-black backdrop-invert "} ref={canvasRef} />
+            <canvas width={isMobile() ? 300 : 450} height={isMobile() ? 150 : 250} className={"bg-white rounded-full border-black backdrop-invert"} ref={canvasRef} />
         </div>
     )
 };

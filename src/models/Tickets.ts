@@ -4,7 +4,6 @@ export interface Tickets {
 
 export interface Ticket {
     ticketID: string
-    gameName: string
     purchaseDate: Date
     pickedNumbers: number[]
 }

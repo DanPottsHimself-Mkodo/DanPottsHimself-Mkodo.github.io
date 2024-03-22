@@ -75,13 +75,12 @@ function LiveDraw() {
   }, []);
 
   return (
-    <div>
+    <>
       <header
         className={
           "flex w-full h-16 items-center text-center px-4 bg-trueBlack"
         }
       >
-        <div className={"w-8"} />
         <h1
           className={
             "font-black text-2xl w-full text-ceefaxYellow flex-grow font-ceefax"
@@ -102,7 +101,7 @@ function LiveDraw() {
         ) : null}
 
         <div
-          className={`${loading ? "invisible" : ""} flex flex-row w-full px-8`}
+          className={`${loading ? "invisible" : ""} flex flex-col-reverse md:flex-row w-full px-8`}
         >
           <TicketContainer
             tickets={tickets}
@@ -111,7 +110,7 @@ function LiveDraw() {
             currentBallCounter={currentBallCounter}
           />
 
-          <div className={"flex flex-col justify-center w-1/2 px-8"}>
+          <div className={"flex flex-col justify-center w-full md:w-1/2 md:px-8"}>
             {!winning && !losing && (
               <>
                 <BouncingBalls />
@@ -121,10 +120,10 @@ function LiveDraw() {
             {winning && (
               <div>
                 <p className="green flex justify-center text-4xl">
-                  <span className="blinking text-2xl font-ceefax">YOU HAVE WON!</span>
+                  <span className="blinking text-lg md:text-2xl font-ceefax">YOU HAVE WON!</span>
                 </p>
-                <p className="green flex justify-center text-8xl font-ceefax">£1000000!</p>
-                <p className="flex justify-center text-ceefaxYellow text-xl font-ceefax">Call 0800 28389627 to claim your prize</p>
+                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£1000000!</p>
+                <p className="flex justify-center text-ceefaxYellow md:text-xl font-ceefax md:mb-0 mb-16">Call 0800 28389627 to claim your prize</p>
 
               </div>
             )}
@@ -150,7 +149,7 @@ function LiveDraw() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
