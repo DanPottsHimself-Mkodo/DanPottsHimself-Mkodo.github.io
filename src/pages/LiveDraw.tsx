@@ -17,7 +17,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
   const [loading, setLoading] = useState(true);
   const lines: number[][] | null = purchasedTicket ? purchasedTicket.pickedLines : null;
   const draws: DrawData[] = drawData;
-  const currentDraw = draws[0];
+  const currentDraw = purchasedTicket ? (draws.find((draw) => draw.drawID === purchasedTicket.drawID) || draws[0]) : draws[0];
   const [drawnBalls, setDrawnBalls] = useState<number[]>([]);
   const [currentBall, setBall] = useState<JSX.Element>();
   const [winning, setWinning] = useState(false);
@@ -127,7 +127,7 @@ const LiveDraw: React.FC<Props> = ({ purchasedTicket }) => {
                 <p className="green flex justify-center text-4xl">
                   <span className="blinking text-lg md:text-2xl font-ceefax">YOU HAVE WON!</span>
                 </p>
-                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£1000000!</p>
+                <p className="green flex justify-center text-3xl md:text-8xl font-ceefax">£{currentDraw.winAmounts}!</p>
                 <p className="flex justify-center text-ceefaxYellow md:text-xl font-ceefax md:mb-0 mb-16">Call 0800 28389627 to claim your prize</p>
 
               </div>
