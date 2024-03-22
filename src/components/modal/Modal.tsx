@@ -1,5 +1,4 @@
 import React from "react";
-import CrossIcon from "../../icons/CrossIcon";
 
 interface ModalProps {
     isOpen: boolean
@@ -11,18 +10,15 @@ export const Modal: React.FC<ModalProps> = ({isOpen, closeModal, children}) => {
     if (!isOpen) return null;
 
     return (
-        <div onClick={() => closeModal()} className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center">
-            <div className="relative bg-white w-96 max-w-full mx-auto rounded-lg p-2">
+        <div onClick={() => closeModal()} className="fixed inset-0 z-50 overflow-auto bg-gray-500 bg-opacity-50 flex items-center">
+            <div className="relative bg-trueBlack w-96 max-w-full mx-auto p-2">
                 <div className={"flex justify-end"}>
-                    <button
-                        className="bg-slate-300 rounded-full w-8 p-1 hover:text-imperial ease-in-out duration-100"
-                        onClick={() => closeModal()}
-                    >
-                        <div><CrossIcon /></div>
+                    <button onClick={() => closeModal()}>
+                        <img src={"/assets/ceefax_cross.png"} alt={"Close ticket scanner"} width={28}/>
                     </button>
                 </div>
                 <div className={"text-left"}>
-                    {children}
+                {children}
                 </div>
             </div>
         </div>
